@@ -33,3 +33,12 @@
                    VK_RIGHT [1 0]
                    VK_UP    [0 -1]
                    VK_DOWN  [0 1]})
+
+
+(defn add-points [& pts]
+  "Adds points together. This can be used to calculate the new position
+  of the snake"
+  (vec (apply map + pts)))
+
+;; Test
+;; (add-points [0 1] [1 2]) => [1 3]
