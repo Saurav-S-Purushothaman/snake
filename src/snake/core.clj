@@ -28,6 +28,9 @@
 ;; Length of the snake at which requires it to win the game
 (def ^:const win-length 5)
 
+;; Apple color
+(def ^:const apple-color (Color. 15 160 70))
+
 ;; Direction
 (def ^:const dirs {VK_LEFT  [-1 0]
                    VK_RIGHT [1 0]
@@ -53,3 +56,9 @@
 
 ;; Test
 ;; (point->screen [5 100]) => (50 1000 10 10)
+
+
+(defn create-apple []
+  {:location [(rand-int width) (rand-int height)]
+   :color apple-color
+   :type :apple})
