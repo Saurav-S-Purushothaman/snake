@@ -1,6 +1,6 @@
 # snake
 
-FIXME: description
+Implimentation of snake game from the book "Programming clojure"
 
 ## Installation
 
