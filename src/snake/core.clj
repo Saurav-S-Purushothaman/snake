@@ -84,3 +84,18 @@
                            (if grow
                              body
                              (butlast body)))))
+
+;; Some tests
+(comment
+  (create-snake) ;; {:body ([1 1]), :dir [1 0], :color #object[java.awt.Color 0x277431 "java.awt.Color[r=15,g=160,b=70]"], :type :snake}
+  (move (create-snake))
+  ;; {:body ([2 1]),
+  ;; :dir [1 0],
+  ;; :color #object[java.awt.Color 0x277431 "java.awt.Color[r=15,g=160,b=70]"],
+  ;; :type :snake}
+  (prn (move (create-snake) :grow))
+  ;; {:body ([2 1] [1 1]),
+  ;; :dir [1 0],
+  ;; :color #object[java.awt.Color 0x277431 "java.awt.Color[r=15,g=160,b=70]"],
+  ;; :type :snake}
+)
