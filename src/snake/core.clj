@@ -103,3 +103,8 @@
 
 (defn win? [{body :body}]
   (>= (count body) win-length))
+
+
+(defn eat?
+  [{[snake-head] :body} {apple :location}]
+  (= snake-head apple))
