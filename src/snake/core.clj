@@ -70,3 +70,17 @@
    :dir [1 0]
    :color snake-color
    :type :snake})
+
+
+(defn move
+  "Moves the snake in the current direction of the snake. Takes an
+  optional grow as args. If grow exist then elongate the body of the
+  snake else keep it the same"
+  [{body :body dir :dir :as snake} & grow]
+  (assoc snake :body (cons (add-points (first body) dir)
+                           ;; If growing, then use the entire body of
+                           ;; the snake else remove the last part of the
+                           ;; body of the snake
+                           (if grow
+                             body
+                             (butlast body)))))
