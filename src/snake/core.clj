@@ -28,8 +28,9 @@
 ;; Length of the snake at which requires it to win the game
 (def ^:const win-length 5)
 
-;; Apple color
-(def ^:const apple-color (Color. 15 160 70))
+;; Snake and apple color
+(def apple-color (Color. 210 50 90))
+(def snake-color (Color. 15 160 70))
 
 ;; Direction
 (def ^:const dirs {VK_LEFT  [-1 0]
@@ -62,3 +63,10 @@
   {:location [(rand-int width) (rand-int height)]
    :color apple-color
    :type :apple})
+
+
+(defn create-snake []
+  {:body (list [1 1])
+   :dir [1 0]
+   :color snake-color
+   :type :snake})
