@@ -1,3 +1,5 @@
+;; NOTE: This is taken from - https://github.com/stuarthalloway/programming-clojure/blob/master/src/examples/import_static.clj
+
 ;;; import_static.clj -- import static Java methods/fields into Clojure
 
 ;; by Stuart Sierra, http://stuartsierra.com/
