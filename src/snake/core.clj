@@ -35,10 +35,21 @@
                    VK_DOWN  [0 1]})
 
 
-(defn add-points [& pts]
+(defn add-points
   "Adds points together. This can be used to calculate the new position
   of the snake"
+  [& pts]
   (vec (apply map + pts)))
 
 ;; Test
 ;; (add-points [0 1] [1 2]) => [1 3]
+
+(defn point->screen
+  "Converts a point in game space to a rectanble on screen
+  NOTE: 0 -> first element of the point
+        1 -> second element of the point"
+  [^:Vector pt]
+  (map #(* point-size %) [(pt 0) (pt 1) 1 1]))
+
+;; Test
+;; (point->screen [5 100]) => (50 1000 10 10)
