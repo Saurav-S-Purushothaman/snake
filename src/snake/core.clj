@@ -182,9 +182,17 @@
   (def test-apple (ref nil))
   (reset-game! test-apple test-snake))
 
+
+
 (defn update-direction
   [snake new-dir]
-  )
+  (when new-dir
+    (dosync
+     (alter snake turn new-dir))))
+
+;; Test update-direction
+(comment
+  (update-direction test-snake [0 -1]))
 
 
 (defn update-positions
