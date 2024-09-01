@@ -44,4 +44,22 @@
       (proxy-super paintComponent graphics)
       ;; Then paint the snake and the appple.
       (paint graphics @snake)
-      (paint graphics @apple))))
+      (paint graphics @apple))
+
+    (actionPerformed [event]
+      (update-positions snake apple)
+      ;; After updating position check if we lose of win
+      (when (lose? @snake)
+        (reset-game! snake apple)
+        (JOptionPane/showMessageDialog frame "You lose!"))
+      (when (win? @snake)
+        (reset-game! snake apple)
+        (JOptionPane/showMessageDialog frame "You win!"))
+      (.repaint this))
+
+    (keyPressed [event]
+      (update-direction snake (dirs (.getKeyCode event))))
+
+    (getPreferredSize []
+      (Dimension. (* (inc width) point-size)
+                  (* (inc height) point-size)))))
