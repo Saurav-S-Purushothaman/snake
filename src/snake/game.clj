@@ -75,7 +75,7 @@
         timer (Timer. turn-millis panel)]
     (doto panel
       (.setFocusable true)
-      (.addKeyListner panel))
+      (.addKeyListener panel))
     (doto frame
       (.add panel)
       (.pack)
