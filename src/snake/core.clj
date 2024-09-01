@@ -176,9 +176,15 @@
    (ref-set apple (create-apple))
    (ref-set snake (create-snake))))
 
+;; Test reset game
+(comment
+  (def test-snake (ref nil))
+  (def test-apple (ref nil))
+  (reset-game! test-apple test-snake))
 
 (defn update-direction
-  [snake new-dir])
+  [snake new-dir]
+  )
 
 
 (defn update-positions
