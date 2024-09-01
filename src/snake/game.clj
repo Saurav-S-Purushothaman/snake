@@ -71,4 +71,14 @@
   (let [snake (ref (create-snake))
         apple (ref (create-apple))
         frame (JFrame. "Snake")
-        panel (game-panel frame snake apple )]))
+        panel (game-panel frame snake apple)
+        timer (Timer. turn-millis panel)]
+    (doto panel
+      (.setFocusable true)
+      (.addKeyListner panel))
+    (doto frame
+      (.add panel)
+      (.pack)
+      (.setVisible true))
+    (.start timer)
+    [snake apple timer]))
