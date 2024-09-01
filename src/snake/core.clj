@@ -80,7 +80,19 @@
 (defn move
   "Moves the snake in the current direction of the snake. Takes an
   optional grow as args. If grow exist then elongate the body of the
-  snake else keep it the same"
+  snake else keep it the same.
+
+  Explanation:
+  Basically the snake is list of vectors. Each vectors represent a point
+  in 2D. The snake has following properties - body, direction, and
+  color.
+  When the snake moves, what actually happens is it loses its last
+  element of the list in body and gets a new element in the front which
+  will be a point that we derive from adding the direction to the first
+  element of the list of vectors. This mimics movement.
+  Suppose the snake grows, then it would retain the last element of the
+  list of vector in the body, making it elongate and move at the same
+  time"
   [{body :body dir :dir :as snake} & grow]
   (assoc snake :body (cons (add-points (first body) dir)
                            ;; If growing, then use the entire body of
@@ -89,6 +101,7 @@
                            (if grow
                              body
                              (butlast body)))))
+
 
 ;; Some tests
 (comment
