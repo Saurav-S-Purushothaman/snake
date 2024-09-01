@@ -168,7 +168,13 @@
 
 
 (defn reset-game!
-  [snake apple])
+  "Reset the positions of apple and the snake. This must be done inside
+  an STM as both apple state change and snake state change is
+  co-ordinated"
+  [snake apple]
+  (dosync
+   (ref-set apple (create-apple))
+   (ref-set snake (create-snake))))
 
 
 (defn update-direction
