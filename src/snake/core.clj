@@ -117,7 +117,7 @@
   ;; :color #object[java.awt.Color 0x277431 "java.awt.Color[r=15,g=160,b=70]"],
   ;; :type :snake}
   )
-`
+
 
 (defn win? [{body :body}]
   (>= (count body) win-length))
