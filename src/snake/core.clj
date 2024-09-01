@@ -1,8 +1,6 @@
 (ns snake.core
   (:require [snake.import-static :as import-static])
-  (:import [java.awt Color Dimension]
-           [javax.swing JPanel JFrame Timer JOptionPane]
-           [java.awt.event ActionListener KeyListener])
+  (:import [java.awt Color])
   (:gen-class))
 
 
