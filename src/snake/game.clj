@@ -29,3 +29,19 @@
   [graphics {:keys [body color]}]
   (doseq [body-position body]
     (fill-point graphics body-position color)))
+
+
+(defn game-panel
+  [frame snake apple]
+  ;; NOTE: proxy is bascially like extending the interface. We supply a
+  ;; class name to proxy which has various interfaces. Now we add code
+  ;; to the interface we want
+  (proxy [JPanel ActionListener KeyListener] []
+    ;; Lets call the paint component to draw the panel
+    (paintComponent [graphics]
+      ;; Let the paintComponent call the proxy-super to invoke JPanel
+      ;; behavior
+      (proxy-super paintComponent graphics)
+      ;; Then paint the snake and the appple.
+      (paint graphics @snake)
+      (paint graphics @apple))))
