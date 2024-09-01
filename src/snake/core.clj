@@ -196,4 +196,20 @@
 
 
 (defn update-positions
-  [snake apple])
+  "If snake eats apple, new apple should be created and snake
+  grows. Otherwise snake simply moves"
+  [snake apple]
+  (if (eat? @snake @apple)
+    (do (ref-set apple (create-apple))
+        (alter snake move :grow))
+    (alter snake move))
+  ;; Let update-positions always return nil
+  nil)
+
+;; Test update position
+(comment
+  (reset-game! test-snake test-apple)
+  ;; Move the apple into snake's way
+  (dosync (alter test-apple assoc :location [1 1]))
+  (dosync (update-positions test-snake test-apple))
+  @test-snake)
