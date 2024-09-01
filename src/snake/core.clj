@@ -127,6 +127,35 @@
   (win? {:body (list 1 1 1 21 213 123 112 )}))
 
 
+(defn head-overlaps-body?
+  "Check if head overlaps body. That is, if the head becomes equal to
+  any of the point in the body other than head"
+  [{[head & body] :body}]
+  (contains? (set body) head))
+
+;; Test head-overlaps-body
+(comment
+  (head-overlaps-body? {:body '([0 1] [1 2] [0 1])})
+  (head-overlaps-body? {:body '([0 0])}))
+
+
+;; The snake lose if head overlaps body
+(def lose? head-overlaps-body?)
+
+
 (defn eat?
+  "Snake eats an apple if its head occupies the apple's position"
   [{[snake-head] :body} {apple :location}]
   (= snake-head apple))
+
+;; Test eat?
+(comment
+  (eat? {:body '([1 1] [1 2])} {:location [1 1]})
+  (eat? {:body '([1 1] [1 2])} {:location [1 0]}))
+
+
+(defn turn
+  "Turns the snake in new direction. Updates the snake direction. That's
+  all"
+  [snake new-dir]
+  (assoc snake :dir new-dir))
