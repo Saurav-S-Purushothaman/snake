@@ -2,31 +2,11 @@
 
 Implimentation of snake game from the book "Programming clojure"
 
-## Installation
-
-Download from http://example.com/FIXME.
-
 ## Usage
 
-FIXME: explanation
-
-    $ java -jar snake-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+``` shell
+clj -M -m snake.main
+```
 
 ## License
 
