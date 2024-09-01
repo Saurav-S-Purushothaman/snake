@@ -65,5 +65,10 @@
                   (* (inc height) point-size)))
 
     (keyReleased [event])
-
     (keyTyped [event])))
+
+(defn game []
+  (let [snake (ref (create-snake))
+        apple (ref (create-apple))
+        frame (JFrame. "Snake")
+        panel (game-panel frame snake apple )]))
