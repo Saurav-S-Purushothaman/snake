@@ -159,3 +159,21 @@
   all"
   [snake new-dir]
   (assoc snake :dir new-dir))
+
+
+;; Mutable model of the game with software transaction memory (STM)
+;; - Reset game
+;; - Snake updates its position. It can turn. It can elongate.
+;; - If snake its an apple, new apple must be placed.
+
+
+(defn reset-game!
+  [snake apple])
+
+
+(defn update-direction
+  [snake new-dir])
+
+
+(defn update-positions
+  [snake apple])
