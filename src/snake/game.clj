@@ -62,4 +62,8 @@
 
     (getPreferredSize []
       (Dimension. (* (inc width) point-size)
-                  (* (inc height) point-size)))))
+                  (* (inc height) point-size)))
+
+    (keyReleased [event])
+
+    (keyTyped [event])))
