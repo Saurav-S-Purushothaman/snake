@@ -38,6 +38,11 @@
                    VK_UP    [0 -1]
                    VK_DOWN  [0 1]})
 
+;; Cartessian coordinates
+;;         (0, +1)
+;; (-1, 0) __ | __ (+1, 0)
+;;            |
+;;         (0, -1)
 
 (defn add-points
   "Adds points together. This can be used to calculate the new position
@@ -99,10 +104,14 @@
   ;; :color #object[java.awt.Color 0x277431 "java.awt.Color[r=15,g=160,b=70]"],
   ;; :type :snake}
   )
-
+`
 
 (defn win? [{body :body}]
   (>= (count body) win-length))
+
+;; Test win?
+(comment
+  (win? {:body (list 1 1 1 21 213 123 112 )}))
 
 
 (defn eat?
